@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <img class="magic-img dog" src="img/chuckJoke.png" alt="">
+        <button class="magic-button">Нажми меня!</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const dog = document.querySelector('.dog');
+            //Страница уже загружена, значит пора получить первое изображение собаки
+            let response = await fetch('https://aws.random.cat/meow');
+            console.log(response);
+            let json = await response.json();
+            console.log(json);
+
+            //Помещаем изображение вместо стандартной иконки
+            dog.src = json.file;
+
+            //Получаем URL следующей картинки
+            response = await fetch('https://aws.random.cat/meow');
+            json = await response.json();
+
+            //Для предзагрузки используем объект Image
+            preloadedDogImage = new Image();
+            preloadedDogImage.src = json.file;
+
+            document.querySelector('.magic-button').addEventListener('click', async function() {
+                //При нажатии на кнопку меняем аттрибут SRC
+                dog.src = preloadedDogImage.src;
+
+                //И получаем следующую картинку
+                response = await fetch('https://aws.random.cat/meow');
+                json = await response.json();
+                preloadedDogImage.src = json.file;
+            });
+        });
+    </script>
+</body>
+
+</html>
