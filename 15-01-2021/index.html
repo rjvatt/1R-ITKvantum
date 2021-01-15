@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Заменить картинку чака на что-то другое -->
+        <img style="border-radius: 10px;" class="magic-img" src="img/chuck-norris.png" alt="">
+        <p class="joke">Здесь будет шутка</p>
+        <button class="magic-button">Нажми меня!</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+
+            document.querySelector(".magic-button").addEventListener('click', async function() {
+                //Заменить адрес, куда обращаемся
+                //https://official-joke-api.appspot.com/jokes/random
+                let response = await fetch('http://api.icndb.com/jokes/random?firstName=Владислав&lastName=Эдуардович');
+                const jsonResponse = await response.json();
+                //Изменить перечень полей 
+                const joke = jsonResponse.value.joke;
+
+                document.querySelector(".joke").innerHTML = joke;
+            })
+        });
+    </script>
+</body>
+
+</html>
