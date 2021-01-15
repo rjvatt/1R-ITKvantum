@@ -8,7 +8,19 @@ JavaScript - fetch api
 - Скачать этот репозиторий
 - Скопировать папку "15-01-2021" в свой репозиторий
 - Выполнить задание в файле index.html
-   
+    1. Использовать api https://official-joke-api.appspot.com/jokes/random
+    2. Использование API Agify (Простой API для предсказания возраста человека по его имени)  
+    - Добавить на страницу поле для ввода (input type="text") с классом "input-name"  
+    - С помощью JS поместить в переменную name значение поля для ввода   
+    let input = document.querySelector('.input-name');  // Это само поле для ввода  
+    //let name = input.value; // Это значение из этого поля  
+    Подробнее: https://htmlacademy.ru/courses/343/run/15  
+    - Использовать запрос к API Agify  
+    https://api.agify.io?name=michael  
+    Вместо Michael необходимо использовать значение переменной name, это позволит предсказать возраст человека по имени:  
+    let response = await fetch('https://api.agify.io?name=' + name);  
+    - Посмотреть, какие поля выдаёт API и изменить const joke = jsonResponse.setup; , чтобы всё работало  
+
 
 
 ## Список репозиториев для проверки домашнего задания:

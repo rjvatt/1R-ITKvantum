@@ -23,10 +23,10 @@
             document.querySelector(".magic-button").addEventListener('click', async function() {
                 //Заменить адрес, куда обращаемся
                 //https://official-joke-api.appspot.com/jokes/random
-                let response = await fetch('http://api.icndb.com/jokes/random?firstName=Владислав&lastName=Эдуардович');
+                let response = await fetch('https://official-joke-api.appspot.com/jokes/random');
                 const jsonResponse = await response.json();
                 //Изменить перечень полей 
-                const joke = jsonResponse.value.joke;
+                const joke = jsonResponse.setup;
 
                 document.querySelector(".joke").innerHTML = joke;
             })
