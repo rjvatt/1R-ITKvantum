@@ -19,13 +19,18 @@ JavaScript - fetch api
     <input class="input-text" type="text" name="" id="">  
     ~~~
     - С помощью JS поместить в переменную name значение поля для ввода   
+    ~~~
     let input = document.querySelector('.input-name');  // Это само поле для ввода  
-    //let name = input.value; // Это значение из этого поля  
+    let name = input.value; // Это значение из этого поля  
+    ~~~
+    
     Подробнее: https://htmlacademy.ru/courses/343/run/15  
     - Использовать запрос к API Agify  
     https://api.agify.io?name=michael  
     Вместо Michael необходимо использовать значение переменной name, это позволит предсказать возраст человека по имени:  
+    ~~~
     let response = await fetch('https://api.agify.io?name=' + name);  
+    ~~~
     - Посмотреть, какие поля выдаёт API и изменить const joke = jsonResponse.setup; , чтобы всё работало  
 
 
