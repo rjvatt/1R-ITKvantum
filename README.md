@@ -15,7 +15,9 @@ JavaScript - fetch api
     https://agify.io/  
     
     - Добавить на страницу поле для ввода (input type="text") с классом "input-name"  
+    ~~~
     <input class="input-text" type="text" name="" id="">  
+    ~~~
     - С помощью JS поместить в переменную name значение поля для ввода   
     let input = document.querySelector('.input-name');  // Это само поле для ввода  
     //let name = input.value; // Это значение из этого поля  
