@@ -31,7 +31,11 @@ JavaScript - fetch api
     ~~~js
     let response = await fetch('https://api.agify.io?name=' + name);  
     ~~~
-    - Посмотреть, какие поля выдаёт API и изменить const joke = jsonResponse.setup; , чтобы всё работало  
+    - Посмотреть, какие поля выдаёт API и изменить 
+    ~~~js
+    const joke = jsonResponse.setup; 
+    ~~~
+
 
 
 
