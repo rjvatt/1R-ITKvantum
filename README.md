@@ -16,7 +16,7 @@ JavaScript - fetch api
     
     - Добавить на страницу поле для ввода (input type="text") с классом "input-name"  
     ~~~html
-    <input class="input-text" type="text" name="" id="">  
+    <input class="input-name" type="text" name="" id="">  
     ~~~
     - С помощью JS поместить в переменную name значение поля для ввода   
     ~~~js
