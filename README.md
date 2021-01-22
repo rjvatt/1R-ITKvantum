@@ -98,7 +98,7 @@ npm install express
 
 ### **Задание:**  
 
-**Использовать следующий код сервера:**  
+**Использовать следующий код сервера: (index.js)**  
 ~~~js
 const express = require('express')
 const app = express()
@@ -120,7 +120,7 @@ app.listen(port, () => {
 })
 ~~~
 
-**JS Example:**  
+**JS Example: (index.html)**  
 ~~~html
 <script>
     document.addEventListener('DOMContentLoaded', async function() {
