@@ -94,6 +94,55 @@ npm install express
 
 ~~~
 
+
+
+### **Задание:**  
+
+**Использовать следующий код сервера:**  
+~~~js
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.send('please ddos grisha!')
+})
+
+app.get('/grisha', (req, res) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.send('DDOS GRISHA!')
+})
+
+
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
+~~~
+
+**JS Example:**  
+~~~html
+<script>
+    document.addEventListener('DOMContentLoaded', async function() {
+
+        document.querySelector(".magic-button").addEventListener('click', async function() {
+            //Заменить адрес, куда обращаемся
+            //https://official-joke-api.appspot.com/jokes/random
+            let response = await fetch('http://localhost:3000/');
+            console.log(response);
+            const textResponse = await response.text();
+            console.log(textResponse);
+            //Изменить перечень полей 
+            document.querySelector(".joke").innerHTML = textResponse;
+        })
+    });
+</script>
+~~~
+
+1. Написать программу-сервер, которая будет работать по трём маршрутам
+2. Написать код на JS, который будет получать данные по одному из маршрутов
+
+
 ## Список репозиториев для проверки домашнего задания:
 1.	Шпарага Григорий Сергеевич  
     https://github.com/Gend0lf/Homework
