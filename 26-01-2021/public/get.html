@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Получить билет</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+        <ul class="menu">
+            <li>
+                <a href="index.html">Назад</a>
+            </li>
+            <li>
+                <a class="get-button" href="#">Получить</a>
+            </li>
+        </ul>
+    </div>
+
+    <script src="js/qrcode.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const button = document.querySelector(".get-button");
+
+            button.addEventListener('click', async function() {
+                //Заменить адрес, куда обращаемся
+                //https://official-joke-api.appspot.com/jokes/random
+                let response = await fetch('http://localhost:3000/get');
+                const jsonResponse = await response.json();
+                console.log(jsonResponse.ticket);
+                //Изменить перечень полей 
+                //document.querySelector(".joke").innerHTML = jsonResponse.ticket;
+
+                //Создаём канвас, в который поместим QR код и link - ссылку, на которую будем "кликать"
+                var canvas = document.createElement('canvas');
+                var link = document.createElement('a');
+
+                //Используем метод toCanvas библиотеки для создания QR
+                QRCode.toCanvas(canvas, jsonResponse.ticket, function(error) {
+                    //Пользуемся toBlob, чтобы из канвас получить блоб, который принимает createObjectURL
+                    canvas.toBlob(function(blob) {
+                        url = URL.createObjectURL(blob);
+                        //обновляем атрибуты ссылки
+                        link.href = url;
+                        link.download = "qrcode.png";
+                        //кликаем, ура!
+                        link.click();
+                    });
+                });
+            })
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+* {
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(135deg, rgba(164, 0, 191, 1) 0%, rgba(0, 212, 255, 1) 100%);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.menu li {
+    list-style-type: none;
+    margin: 30px 0px;
+}
+
+.menu li a {
+    font-size: 48px;
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    border: 5px solid black;
+    width: 450px;
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0px;
+    box-shadow: 3px 5px 10px black;
+    background: white;
+}
+
+.joke-text {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: white;
+}
